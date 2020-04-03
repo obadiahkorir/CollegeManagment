@@ -1,0 +1,820 @@
+﻿
+/* Document Viewer*/
+.git-docviewer-container {
+    background-color: #424242;
+}
+
+/* Toolbar, Left Pane Header, Right Pane Header */
+.git-docviewer-toolbar {
+    background-image: url('Images/texture.png'), linear-gradient(rgba(81, 81, 81, 0.99), rgba(68, 68, 68, 0.95));
+    box-shadow: 1px 0px 0px rgba(255, 255, 255, 0.08) inset, 0px 1px 1px rgba(0, 0, 0, 0.15) inset, 0px -1px 0px rgba(255, 255, 255, 0.05) inset, 0px 1px 0px rgba(0, 0, 0, 0.15), 0px 1px 1px rgba(0, 0, 0, 0.1);
+    background-color: #424242;
+}
+
+.git-viewer-leftpane-header, .git-viewer-rightpane-header {
+    background-image: url('Images/texture.png'), linear-gradient(rgba(81, 81, 81, 0.99), rgba(68, 68, 68, 0.95));
+    box-shadow: 1px 0px 0px rgba(255, 255, 255, 0.08) inset, 0px 1px 1px rgba(0, 0, 0, 0.15) inset, 0px -1px 0px rgba(255, 255, 255, 0.05) inset, 0px 1px 0px rgba(0, 0, 0, 0.15), 0px 1px 1px rgba(0, 0, 0, 0.1);
+    background-color: #424242;
+}
+
+/* Navigation Pane - Left Pane Content, Right Pane Content */
+.git-viewer-toolbarContent, .git-viewer-comment-toolbarContent {
+    background-color: #494949;
+    box-shadow: inset -1px 0 0 hsla(0,0%,0%,.25);
+    /*background-color: hsla(0,0%,0%,.7);*/
+}
+
+/* Display Page & Thumbanil Page*/
+.git-docviewer-page, .git-viewer-thumbnail-page {
+    border-color: transparent;
+    background-color: #FFF;
+}
+    .git-viewer-thumbnail-page:hover {
+        background-color: #d6dbe9;
+    }
+
+.git-viewer-thumbnail-page-active {
+    background-color: #abcde1;
+}
+
+
+/*Bookmark Tree CSS*/
+.jqtree-element:hover {
+    background-color: #696969;
+}
+ul.jqtree-tree .jqtree-title {
+    color: white;
+    color: hsla(0,0%,100%,.8);
+}
+
+.git-docviewer-quick-find-panel {
+    height: 34px;
+    background-image: url('Images/texture.png');
+    box-shadow: 1px 0px 0px rgba(255, 255, 255, 0.08) inset, 0px 1px 1px rgba(0, 0, 0, 0.15) inset, 0px -1px 0px rgba(255, 255, 255, 0.05) inset, 0px 1px 0px rgba(0, 0, 0, 0.15), 0px 1px 1px rgba(0, 0, 0, 0.1);
+    background: -webkit-linear-gradient(rgba(81, 81, 81, 0.99), rgba(68, 68, 68, 0.95));
+    background-color: #474747;
+}
+
+.git-docviewer-controlcontainer:hover {
+    background-color: hsla(0,0%,0%,.12);
+}
+
+/* Toolbar Control Icons */
+
+.git-password-icon {
+    background-image: url(Images/lock-32.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:20px;
+    height:20px;
+}
+
+.gif-docviewer-pagecount-animation {
+    background-image: url('Images/pagecount.gif');
+}
+
+.git-docviewer-openpan {
+    background-image: url("Images/sidebarToggle.png");
+}
+
+.git-docviewer-closepan {
+    background-image: url("Images/sidebarToggle.png");
+}
+
+.git-docviewer-thumbnails {
+    background-image: url("Images/thumbnail.png");
+}
+
+.git-docviewer-bookmark {
+    background-image: url("Images/bookmark.png");
+}
+
+/*file operation controls*/
+.git-docviewer-open {
+    background-image: url("Images/open.png");
+}
+
+.git-docviewer-download {
+    background-image: url("Images/download.png");
+}
+
+.git-docviewer-info {
+    background-image: url("Images/propertiesInfo.png");
+    background-size:18px;
+}
+
+
+
+
+.git-docviewer-signature {
+    background-image: url("Images/signature.ico");
+}
+
+.git-docviewer-redact {
+    background-image: url("Images/region.png");
+}
+
+.git-docviewer-invert {
+    background-image: url("Images/invert.png");
+}
+
+.git-docviewer-forms-comboBoxDownArrow {
+    background-image: url("Images/downArrow.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.inputPageCountProgress {
+    background: url('Images/spinner_transp.gif') no-repeat 92% 50%;
+    background-size: 12px 12px;
+}
+
+.activeToolbarButton {
+    background-clip: padding-box;
+    border: 1px solid hsla(0,0%,0%,.35);
+    border-color: hsla(0,0%,0%,.32) hsla(0,0%,0%,.38) hsla(0,0%,0%,.42);
+    box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset, 0 0 1px hsla(0,0%,100%,.15) inset, 0 1px 0 hsla(0,0%,100%,.05);
+    -webkit-transition-property: background-color, border-color, box-shadow;
+    -webkit-transition-duration: 150ms;
+    -webkit-transition-timing-function: ease;
+    transition-property: background-color, border-color, box-shadow;
+    transition-duration: 150ms;
+    transition-timing-function: ease;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: rgb(92, 92, 92);
+}
+
+.git-docviewer-downloadas {
+    background-image: url("Images/downloadAs.png");
+}
+
+.git-docviewer-print {
+    background-image: url("Images/print.png");
+}
+
+.git-docviewer-save {
+    background-image: url("Images/save.png");
+}
+.git-docviewer-find {
+    background-color: rgba(255, 255, 255, 0.09);
+}
+ .git-docviewer-findup {
+    background-image: url("Images/arrow-up.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.git-docviewer-findControls:hover {
+    background-clip: padding-box;
+    border: 1px solid hsla(0,0%,0%,.35);
+    border-color: hsla(0,0%,0%,.32) hsla(0,0%,0%,.38) hsla(0,0%,0%,.42);
+    box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset, 0 0 1px hsla(0,0%,100%,.15) inset, 0 1px 0 hsla(0,0%,100%,.05);
+    -webkit-transition-property: background-color, border-color, box-shadow;
+    -webkit-transition-duration: 150ms;
+    -webkit-transition-timing-function: ease;
+    transition-property: background-color, border-color, box-shadow;
+    transition-duration: 150ms;
+    transition-timing-function: ease;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: hsla(0,0%,0%,.12);
+}
+
+.git-docviewer-OKBtn:hover {
+    background-clip: padding-box;
+    border: 1px solid hsla(0,0%,0%,.35);
+    border-color: hsla(0,0%,0%,.32) hsla(0,0%,0%,.38) hsla(0,0%,0%,.42);
+    box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset, 0 0 1px hsla(0,0%,100%,.15) inset, 0 1px 0 hsla(0,0%,100%,.05);
+    -webkit-transition-property: background-color, border-color, box-shadow;
+    -webkit-transition-duration: 150ms;
+    -webkit-transition-timing-function: ease;
+    transition-property: background-color, border-color, box-shadow;
+    transition-duration: 150ms;
+    transition-timing-function: ease;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: rgb(92, 92, 92);
+}
+
+.git-docviewer-finddown {
+    background-image: url("Images/arrow-down.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
+.git-docviewer-findclose {
+    background-image: url("Images/close.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.git-docviewer-quick-find-bubble {
+    background-image: url("Images/bubble-up-gray.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.messageDIV {
+    background-color: #cccccc;
+}
+
+.git_xdoc_viewer_class_overlay {
+    background-color: rgb(92, 92, 92);
+}
+ 
+
+/*navigation controls*/
+.git-docviewer-first {
+    background-image: url("Images/first.png");
+}
+
+.git-docviewer-prev {
+    background-image: url("Images/prev.png");
+}
+
+.git-docviewer-goto {
+    background-color: rgba(255, 255, 255, 0.09);
+    width: 45px;
+    color: #F2F2F2;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.git-docviewer-next {
+    background-image: url("Images/next.png");
+}
+
+.git-docviewer-last {
+    background-image: url("Images/last.png");
+}
+
+/*zoom controls*/
+
+.git-docviewer-zoomin {
+    background-image: url("Images/zoomin.png");
+}
+
+.git-docviewer-zoomout {
+    background-image: url("Images/zoomout.png");
+}
+
+
+/*rotation control*/
+
+.git-docviewer-rotateright {
+    background-image: url("Images/clockwise.png");
+}
+
+.git-docviewer-rotateleft {
+    background-image: url("Images/anticlock.png");
+}
+
+.git-docviewer-fullScreen {
+    background-image: url("Images/fullscreen.png");
+}
+
+.git-docviewer-quickFind {
+    background-image: url("Images/find.png");
+}
+
+
+.git-docviewer-quickFind_clicked {
+    background-clip: padding-box;
+    border: 1px solid hsla(0,0%,0%,.35);
+    border-color: hsla(0,0%,0%,.32) hsla(0,0%,0%,.38) hsla(0,0%,0%,.42);
+    box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset, 0 0 1px hsla(0,0%,100%,.15) inset, 0 1px 0 hsla(0,0%,100%,.05);
+    -webkit-transition-property: background-color, border-color, box-shadow;
+    -webkit-transition-duration: 150ms;
+    -webkit-transition-timing-function: ease;
+    transition-property: background-color, border-color, box-shadow;
+    transition-duration: 150ms;
+    transition-timing-function: ease;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    background-color: hsla(0,0%,0%,.12);
+}
+
+.git-docviewer-fullScreen-exit {
+    background-image: url("Images/fullscreen-exit.png");
+}
+
+.git-docviewer-downloadAs-carat {
+    /*    background-image: url("Images/small-grey-disclosure-arrow-down.png");
+    background-repeat:no-repeat;
+    background-position: center; */
+    display: inline-block;
+    width: 0;
+    height: 0;
+    vertical-align: middle;
+    border-top: 5px solid;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    color: white;
+}
+
+.git-docviewer-sec-zoomout {
+    display: block;
+}
+
+.git-docviewer-sec-zoomin {
+    display: block;
+}
+
+.git-docviewer-sec-print {
+    display: block;
+}
+
+.git-docviewer-sec-download {
+    display: block;
+}
+
+.git-docviewer-zoom {
+    background-image: url("Images/zoom.png");
+}
+
+    .git-docviewer-zoom:focus {
+        background-color: rgba(0, 0, 0, 0.12);
+    }
+
+.git-docviewer-togglemenu {
+    background: url("Images/togglemenu.png") no-repeat center;
+}
+
+.git-docviewer-loading {
+    background: url('Images/loadDocument.gif') no-repeat center;
+    padding: 10px;
+}
+
+.git-docviewer-printdialog {
+    background: url('Images/loadDocument.gif') no-repeat center;
+    padding: 10px;
+}
+
+
+
+
+.git-docviewer-open {
+    background-image: url("Images/open.png");
+}
+
+.git-docviewer-download {
+    background-image: url("Images/download.png");
+}
+
+.git-docviewer-download {
+    width: 23px;
+    height: 27px;
+    margin: 0px 4px 0px 2px;
+    float: left;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.git-docviewer-downloadas {
+    background-image: url("Images/downloadAs.png");
+}
+
+.git-docviewer-print {
+    background-image: url("Images/print.png");
+}
+
+.git-popUpBox-overlay {
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(92, 92, 92);
+    z-index: 5555;
+    -moz-opacity: 0.65;
+    opacity: .65;
+    filter: alpha(opacity=65);
+}
+
+.git-popUpBox-messagebox {
+    display: block;
+    margin: 10px 0px;
+    padding: 15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    position: relative;
+    z-index: 5005;
+}
+
+.git-popUpBox-warning {
+    color: #9F6000;
+    background-color: #FEEFB3;
+    background-image: url('Images/warning.png');
+}
+
+.git-popUpBox-warning-color {
+    background-color: #FEEFB3;
+}
+
+.git-popUpBox-info {
+    color: #00529B;
+    background-color: #BDE5F8;
+    background-image: url('Images/info.png');
+}
+
+.git-popUpBox-info-color {
+    background-color: #BDE5F8;
+}
+
+.git-popUpBox-success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    background-image: url('Images/success.png');
+}
+
+.git-popUpBox-success-color {
+    background-color: #DFF2BF;
+}
+
+.git-popUpBox-error {
+    color: #D8000C;
+    background-color: #FFBABA;
+    background-image: url('Images/error.png');
+}
+
+.git-popUpBox-error-color {
+    background-color: #FFBABA;
+}
+
+.git-popUpBox-validation {
+    color: #D63301;
+    background-color: #FFCCBA;
+    background-image: url('Images/validation.png');
+}
+
+
+.git-annot-status-accepted {
+    background-image: url("Images/accepted-disabled.png");
+}
+
+.git-annot-status-accepted_enabled {
+    background-image: url("Images/accepted-enabled.png");
+}
+
+.git-annot-status-rejected-enabled {
+    background-image: url("Images/rejected-enabled.png");
+}
+
+.git-annot-status-cancelled-enabled {
+    background-image: url("Images/cancel-enabled.png");
+}
+
+.git-annot-status-completed-enabled {
+    background-image: url("Images/completed-enabled.png");
+}
+
+.git-annot-status-rejected {
+    background-image: url("Images/rejected-disabled.png");
+}
+
+.git-annot-status-cancelled {
+    background-image: url("Images/cancel-disabled.png");
+}
+
+.git-annot-status-completed {
+    background-image: url("Images/completed-disabled.png");
+}
+
+.git-annot-popup-user-icon {
+    background-image: url("Images/user-16.png");
+    background-repeat: no-repeat;
+    background-size: 16px;
+}
+
+.git-annot-minimize {
+    background-image: url("Images/minimize-window-gray.png");
+    background-repeat: no-repeat;
+    background-size: 16px;
+}
+
+.git-annot-note {
+    background-image: url("Images/comment-png-16.png");
+    background-repeat: no-repeat;
+    background-size: 24px;
+}
+
+
+.git-popUpBox-validation-color {
+    background-color: #FFCCBA;
+}
+
+.git-popUpBox-popupbox {
+    padding: 10px 15px 10px 15px;
+    z-index: 5555;
+}
+
+.git-popUpBox-popupbox-message {
+    text-align: left;
+    margin: 8px 0px 8px 0px;
+}
+
+.git-popUpBox-popupbox-message-color {
+    background-color: #BDE5F8;
+}
+
+.git-popUpBox-popupbox-cancel {
+    background-color: #d4b9b9;
+    color: black;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    float: right;
+}
+
+.git-popUpBox-closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+    /* When moving the mouse over the close button */
+    .git-popUpBox-closebtn:hover {
+        color: black;
+    }
+
+
+
+
+.git-actionlist {
+    background-image: url('Images/actionlist.png');
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-color: white;
+}
+
+
+.git-region-delete {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    text-align: center;
+    text-shadow: 1px 1px 0 #fff;
+    font: 11px/normal sans-serif;
+    color: #333;
+    white-space: nowrap;
+    cursor: pointer;
+    outline: none;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    background-image: url('Images/delete.png');
+    background-size: 24px;
+    background-repeat: no-repeat;
+}
+
+
+/*Drop down: select region action*/
+ul.git-redact-list-ul {
+    width: 32px;
+    height: 32px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.git-action-dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 1px 4px;
+    text-decoration: none;
+}
+
+    li.git-redact-list-li a.git-action-anchor:hover, .git-action-dropbtn:hover .git-action-dropbtn {
+        background-color: red;
+    }
+
+li.git-action-dropdown {
+    display: inline-block;
+}
+
+.git-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+    .git-dropdown-content a.git-action-anchor {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        cursor: default;
+    }
+
+        .git-dropdown-content a.git-action-anchor:hover {
+            background-color: #f1f1f1;
+            cursor: pointer;
+        }
+
+.git-action-dropdown:hover .git-dropdown-content {
+    display: block;
+}
+
+
+.git-default-cursor {
+    cursor: default;
+}
+
+.git-move-cursor {
+    cursor: move;
+}
+
+.git-draw-cursor {
+    cursor: crosshair;
+}
+
+
+
+
+
+.git-docviewer-container:fullscreen, .git-docviewer-container:-webkit-full-screen, .git-docviewer-container:-moz-full-screen {
+    background-color: #404040;
+}
+
+.git-viewer-thumbnail-page-container:fullscreen, .git-viewer-thumbnail-page-container:-webkit-full-screen, .git-viewer-thumbnail-page-container:-moz-full-screen {
+    background-color: #404040;
+}
+
+.git-viewer-thumbnail-page:fullscreen, .git-viewer-thumbnail-page:-webkit-full-screen, .git-viewer-thumbnail-page:-moz-full-screen {
+    background-color: #fff;
+}
+
+
+#bookmark:fullscreen, #bookmark:-webkit-full-screen, #bookmark:-moz-full-screen {
+    background-color: #404040;
+}
+
+#bookmark > *:fullscreen, #bookmark > *:-webkit-full-screen, #bookmark > *:-moz-full-screen {
+    background-color: #404040;
+}
+
+#thumbnail:fullscreen, #thumbnail:-webkit-full-screen, #thumbnail:-moz-full-screen {
+    background-color: #404040;
+}
+
+#thumbnail > *:fullscreen, #thumbnail > *:-webkit-full-screen, #thumbnail > *:-moz-full-screen {
+    background-color: #404040;
+}
+*:fullscreen, *:-webkit-full-screen, *:-moz-full-screen {
+    background-color: #404040;
+}
+
+
+
+/*Document Properties Window*/
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    /*border: 1px solid #ccc;*/
+    background-color: #f1f1f1;
+}
+
+    /* Style the buttons inside the tab */
+    .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 4px 16px;
+        transition: 0.3s;
+        font-size: 16px;
+    }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    /*border: 1px solid #ccc;*/
+    border-top: none;
+}
+
+.documentProperties {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    width: 600px;
+    background-color: lightblue;
+    height: 300px;
+}
+
+
+.tableContainer {
+    padding: 6px 4px 4px 4px;
+}
+
+.documentpropertytbl > tr > td {
+    max-width: 175px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.propertiesDlg {
+    z-index: 66666;
+    position: absolute;
+    display: inline-block;
+    color: black;
+    background-color: white;
+    box-shadow: inset 1px 0 0 hsla(0,0%,100%,.08), inset 0 1px 1px hsla(0,0%,0%,.15), inset 0 -1px 0 hsla(0,0%,100%,.05), 0 1px 0 hsla(0,0%,0%,.15), 0 1px 1px hsla(0,0%,0%,.1);
+    border: 1px solid hsla(0,0%,0%,.5);
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    border-image: url("Images/shadow.png") 9 9 9 9 repeat repeat;
+    width: 340px;
+    min-height:310px;
+}
+.printRangeItem {
+    padding:2px 0px;
+}
+.printBtn {
+    border: 1px solid gray;
+    font-weight: bold;
+    padding: 1px 16px;
+    float: right;
+}
+
+.printDialogFooter {
+    padding: 5px 5px;
+    background-color: white;
+    color: black;
+    float:right;
+}
+.printDialogHeader {
+    padding: 8px 11px;
+    background-color: #f1f1f1;
+    color: black;
+    font-size: 16px;
+}
+
+.printDialogBody {
+    background-color: #fefefe;
+    padding: 10px 20px 0px 20px;
+}
+
+
+
+/* The Close Button */
+.closePrintDialog {
+    color: #aaa;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+    .closePrintDialog:hover,
+    .closePrintDialog:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+.printDialog {
+    z-index: 66666;
+    position: absolute;
+    display: inline-block;
+    color: black;
+    background-color: white;
+    box-shadow: inset 1px 0 0 hsla(0,0%,100%,.08), inset 0 1px 1px hsla(0,0%,0%,.15), inset 0 -1px 0 hsla(0,0%,100%,.05), 0 1px 0 hsla(0,0%,0%,.15), 0 1px 1px hsla(0,0%,0%,.1);
+    border: 1px solid hsla(0,0%,0%,.5);
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    border-image: url("Images/shadow.png") 9 9 9 9 repeat repeat;
+    width: 340px;
+}
+
+.documentPropertiesTitle {
+    font-size: 20px;
+    font-weight: bold;
+}

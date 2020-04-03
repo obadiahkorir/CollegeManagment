@@ -1,0 +1,1542 @@
+﻿/* Workaround for Safari browser issue where entered text was not visible till the text input lost focus*/
+/*input, button, textarea, select {
+	-webkit-transform: translate3d(0,0,0);
+}*/
+
+/**:not(html) {
+    -webkit-transform: translate3d(0, 0, 0);
+}*/
+
+.git-docviewer-container {
+    -webkit-user-select: none; /* Chrome/Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+    font-family: "Droid Sans","Liberation Sans",FreeSans,"DejaVu Sans","Helvetica CY","Helvetica CE","Lucida Grande","Segoe UI",Tahoma,"Lucida Sans Unicode","Doulos SIL","TITUS Cyberbit Basic","Last Resort","Arial Unicode MS",Helvetica,sans-serif;
+}
+.git-viewer-rightpane-header {
+    vertical-align: central;
+    text-align: center;
+}
+
+.git-docviewer-toolbar {
+    height: 37px;
+}
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(51,51,51,0.7);
+    z-index: 10;
+}
+
+.git-docviewer-page > canvas {
+    padding: 0px;
+}
+
+
+.git-docviewer-page-drag {
+    cursor: default;
+}
+
+.git-docviewer-page-dragging {
+    cursor: default;
+}
+
+.git-docviewer-controlcontainer {
+    /*background-color: #474747;*/
+    width: 28px;
+    height: 27px;
+}
+
+.git-docviewer-dual-controlcontainer {
+    width: 41px;
+    height: 27px;
+}
+
+.git-docviewer-container > * {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.git-docviewer-controlcontainer {
+    float: left;
+    color: hsla(0,0%,100%,.8);
+    background-repeat: no-repeat;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-transition-property: background-color, border-color, box-shadow;
+    -webkit-transition-duration: 150ms;
+    -webkit-transition-timing-function: ease;
+    transition-property: background-color, border-color, box-shadow;
+    transition-duration: 150ms;
+    transition-timing-function: ease;
+    background-position: center;
+    display: inline-block;
+    flex-align: center;
+    text-align: center;
+    cursor: pointer;
+    padding: 2px 2px 2px 2px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    font-size: 12px;
+    line-height: 14px;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+    .git-docviewer-controlcontainer:hover {
+        background-clip: padding-box;
+        border: 1px solid hsla(0,0%,0%,.35);
+        border-color: hsla(0,0%,0%,.32) hsla(0,0%,0%,.38) hsla(0,0%,0%,.42);
+        box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset, 0 0 1px hsla(0,0%,100%,.15) inset, 0 1px 0 hsla(0,0%,100%,.05);
+        -webkit-transition-property: background-color, border-color, box-shadow;
+        -webkit-transition-duration: 150ms;
+        -webkit-transition-timing-function: ease;
+        transition-property: background-color, border-color, box-shadow;
+        transition-duration: 150ms;
+        transition-timing-function: ease;
+        -webkit-box-sizing: content-box;
+        box-sizing: content-box;
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+
+    .git-docviewer-controlcontainer[disabled]:hover {
+        opacity: 0.5;
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+
+    .git-docviewer-controlcontainer[disabled] {
+        opacity: 0.5;
+        margin-left: 2px;
+        margin-right: 2px;
+        cursor: default;
+    }
+
+.git-docviewer-download[disabled] {
+    opacity: 0.5;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.click-nav[disabled] {
+    opacity: 0.5;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.git-docviewer-thumbnail-active {
+    background-clip: padding-box;
+    border: 1px solid hsla(0,0%,0%,.35);
+    border-color: hsla(0,0%,0%,.32) hsla(0,0%,0%,.38) hsla(0,0%,0%,.42);
+    box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset, 0 0 1px hsla(0,0%,100%,.15) inset, 0 1px 0 hsla(0,0%,100%,.05);
+    -webkit-transition-property: background-color, border-color, box-shadow;
+    -webkit-transition-duration: 150ms;
+    -webkit-transition-timing-function: ease;
+    transition-property: background-color, border-color, box-shadow;
+    transition-duration: 150ms;
+    transition-timing-function: ease;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.git-viewer-button-container {
+    float: left;
+    color: hsla(0,0%,100%,.8);
+    background-repeat: no-repeat;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-transition-property: background-color, border-color, box-shadow;
+    -webkit-transition-duration: 150ms;
+    -webkit-transition-timing-function: ease;
+    transition-property: background-color, border-color, box-shadow;
+    transition-duration: 150ms;
+    transition-timing-function: ease;
+    background-position: center;
+    display: inline-block;
+    flex-align: center;
+    text-align: center;
+    cursor: pointer;
+    padding: 2px 2px 2px 2px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    font-size: 12px;
+    line-height: 14px;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+
+    .git-viewer-button-container:hover:enabled {
+        background-clip: padding-box;
+        border: 1px solid hsla(0,0%,0%,.35);
+        border-color: hsla(0,0%,0%,.32) hsla(0,0%,0%,.38) hsla(0,0%,0%,.42);
+        box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset, 0 0 1px hsla(0,0%,100%,.15) inset, 0 1px 0 hsla(0,0%,100%,.05);
+        -webkit-transition-property: background-color, border-color, box-shadow;
+        -webkit-transition-duration: 150ms;
+        -webkit-transition-timing-function: ease;
+        transition-property: background-color, border-color, box-shadow;
+        transition-duration: 150ms;
+        transition-timing-function: ease;
+        -webkit-box-sizing: content-box;
+        box-sizing: content-box;
+        /*background-color: hsla(0,0%,0%,.12);*/
+    }
+
+    .git-viewer-button-container[disabled] {
+        opacity: 0.5;
+        margin-left: 2px;
+        margin-right: 2px;
+        cursor: default;
+    }
+
+.git_viewer_saveAs_button_container {
+    float: left;
+    color: hsla(0,0%,100%,.8);
+    background-repeat: no-repeat;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-transition-property: background-color, border-color, box-shadow;
+    -webkit-transition-duration: 150ms;
+    -webkit-transition-timing-function: ease;
+    transition-property: background-color, border-color, box-shadow;
+    transition-duration: 150ms;
+    transition-timing-function: ease;
+    background-position: center;
+    display: inline-block;
+    flex-align: center;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    font-size: 12px;
+    line-height: 14px;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+    .git_viewer_saveAs_button_container:hover {
+        border: 1px solid hsla(0,0%,0%,.35);
+        border-color: hsla(0,0%,0%,.32) hsla(0,0%,0%,.38) hsla(0,0%,0%,.42);
+        box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset, 0 0 1px hsla(0,0%,100%,.15) inset, 0 1px 0 hsla(0,0%,100%,.05);
+        -webkit-transition-property: background-color, border-color, box-shadow;
+        -webkit-transition-duration: 150ms;
+        -webkit-transition-timing-function: ease;
+        transition-property: background-color, border-color, box-shadow;
+        transition-duration: 150ms;
+        transition-timing-function: ease;
+        -webkit-box-sizing: content-box;
+        box-sizing: content-box;
+    }
+
+.git-docviewer-find {
+    display: inline-block;
+    float: left;
+    padding: 0px 6px;
+    margin: 4px 2px;
+    border-radius: 2px;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+    background-clip: padding-box;
+    border-width: 1px;
+    border-style: solid;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    border-image: none;
+    border-color: rgba(0, 0, 0, 0.32) rgba(0, 0, 0, 0.38) rgba(0, 0, 0, 0.42);
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05) inset, 0px 1px 0px rgba(255, 255, 255, 0.05);
+    outline-style: none;
+    transition-property: background-color, border-color, box-shadow;
+    transition-duration: 150ms;
+    transition-timing-function: ease;
+    width: 45px;
+    color: #F2F2F2;
+    font-size: 12px;
+}
+
+.git-viewer-button-container[disabled] {
+    opacity: 0.5;
+}
+
+.git-viewer-dual-button-container {
+    height: 15px;
+    background: url('Images/zoommenuarrows.png') no-repeat scroll;
+    background-size: 10px 10px;
+    float: left;
+    color: hsla(0,0%,100%,.8);
+    background-repeat: no-repeat;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-transition-property: background-color, border-color, box-shadow;
+    -webkit-transition-duration: 150ms;
+    -webkit-transition-timing-function: ease;
+    transition-property: background-color, border-color, box-shadow;
+    transition-duration: 150ms;
+    transition-timing-function: ease;
+    background-position: center;
+    display: inline-block;
+    flex-align: center;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 2px;
+    font-size: 12px;
+    line-height: 14px;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+    .git-viewer-dual-button-container > select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-indent: 1px;
+        text-overflow: '';
+        outline: none;
+        color: #404040;
+        opacity: 0;
+        margin: 0px;
+        padding: 0px;
+        border: medium none;
+        background: none repeat scroll 0% 0 % transparent;
+        border-style: none;
+    }
+
+        .git-viewer-dual-button-container > select > option {
+            background: none repeat scroll 0% 0% #3D3D3D;
+            color: #F2F2F2;
+        }
+
+
+.git_viewer_box_shadow .git-viewer-toolbar-drpdwn-zoom {
+    box-shadow: 1px 0px 0px rgba(255, 255, 255, 0.08) inset, 0px 1px 1px rgba(0, 0, 0, 0.15) inset, 0px -1px 0px rgba(255, 255, 255, 0.05) inset, 0px 1px 0px rgba(0, 0, 0, 0.15), 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.git-docviewer-goto {
+    display: inline-block;
+    float: left;
+    padding: 0px 6px;
+    margin: 4px 2px;
+    border-radius: 2px;
+    /*background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));*/
+    background-clip: padding-box;
+    border-width: 1px;
+    border-style: solid;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    border-image: none;
+    border-color: rgba(0, 0, 0, 0.32) rgba(0, 0, 0, 0.38) rgba(0, 0, 0, 0.42);
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05) inset, 0px 1px 0px rgba(255, 255, 255, 0.05);
+    outline-style: none;
+    transition-property: background-color, border-color, box-shadow;
+    transition-duration: 150ms;
+    transition-timing-function: ease;
+}
+
+    .git-docviewer-goto:disabled {
+        color: gray;
+        user-select: none;
+    }
+
+.git-docviewer-zoominput {
+    display: inline-block;
+    float: left;
+    background-image: linear-gradient(hsla(0,0%,0%,1), rgba(255, 255, 255, 1));
+    background-clip: padding-box;
+    border-width: 1px;
+    border-style: solid;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    border-image: none;
+    border-color: rgba(0, 0, 0, 0.32) rgba(0, 0, 0, 0.38) rgba(0, 0, 0, 0.42);
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05) inset, 0px 1px 0px rgba(255, 255, 255, 0.05);
+    outline-style: none;
+    transition-property: background-color, border-color, box-shadow;
+    transition-duration: 150ms;
+    transition-timing-function: ease;
+}
+
+
+
+.git-viewer-toolbar-drpdwn-zoom {
+    float: left;
+    width: 70px;
+    max-width: 120px;
+    overflow: hidden;
+    background: url('Images/zoommenuarrows.png') no-repeat scroll;
+    background-size: 10px 10px;
+    background-position: 91% center;
+    height: 26px;
+}
+
+    .git-viewer-toolbar-drpdwn-zoom:focus {
+        background-clip: padding-box;
+        border-width: 1px;
+        -moz-border-top-colors: none;
+        -moz-border-right-colors: none;
+        -moz-border-bottom-colors: none;
+        -moz-border-left-colors: none;
+        border-image: none;
+    }
+
+    .git-viewer-toolbar-drpdwn-zoom > select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        outline: none;
+        min-width: 70px;
+        color: #404040;
+        opacity: 0;
+        margin: 0px;
+        padding: 0px;
+        border: medium none;
+        background: none repeat scroll 0% 0% transparent;
+        border-style: none;
+    }
+
+        .git-viewer-toolbar-drpdwn-zoom > select > option {
+            background: none repeat scroll 0% 0% #3D3D3D;
+            color: #F2F2F2;
+        }
+
+
+div.git-viewer-button-container:hover, .git-viewer-toolbar-drpdwn-zoom {
+    background-color: hsla(0,0%,0%,.12);
+    background-clip: padding-box;
+    border: 1px solid hsla(0,0%,0%,.35);
+    border-color: hsla(0,0%,0%,.32) hsla(0,0%,0%,.38) hsla(0,0%,0%,.42);
+    box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset, 0 0 1px hsla(0,0%,100%,.15) inset, 0 1px 0 hsla(0,0%,100%,.05);
+    -webkit-transition-property: background-color, border-color, box-shadow;
+    -webkit-transition-duration: 150ms;
+    -webkit-transition-timing-function: ease;
+    transition-property: background-color, border-color, box-shadow;
+    transition-duration: 150ms;
+    transition-timing-function: ease;
+}
+
+.git_xdoc_docviewer_toolbar_container_class_center {
+    display: inline-block;
+    min-width: 16px;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    color: #D8D8D8;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: left;
+    -moz-user-select: none;
+    cursor: default;
+}
+
+.git-xdoc-viewer-toolbar-drpdwn-class-zoom {
+    display: none;
+    z-index: 5;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.12);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+    background-clip: padding-box;
+    border-width: 1px;
+    border-style: solid;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    border-image: none;
+    border-color: rgba(0, 0, 0, 0.32) rgba(0, 0, 0, 0.38) rgba(0, 0, 0, 0.42);
+    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.05) inset, 0px 0px 1px rgba(255, 255, 255, 0.15) inset, 0px 1px 0px rgba(255, 255, 255, 0.05);
+}
+
+
+.git-xdoc-viewer-toolbar-toggle-button {
+    display: none;
+    z-index: 5;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.12);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+    background-clip: padding-box;
+    border-width: 1px;
+    border-style: solid;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    border-image: none;
+    border-color: rgba(0, 0, 0, 0.32) rgba(0, 0, 0, 0.38) rgba(0, 0, 0, 0.42);
+    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.05) inset, 0px 0px 1px rgba(255, 255, 255, 0.15) inset, 0px 1px 0px rgba(255, 255, 255, 0.05);
+}
+
+.git-xdoc-viewer-toolbar-drpdwn-class-zoom {
+    background: #555;
+    max-width: 156px;
+    text-align: right;
+    position: absolute;
+    right: 6px;
+    z-index: 5000;
+    top: 36px;
+}
+
+.OKBtn {
+    color: buttontext;
+    outline: none;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+    background-color: #cccccc;
+    font-family: tahoma;
+    font-size: 9pt;
+    background-repeat: no-repeat;
+    background-position: 200px;
+    border-radius: 5px;
+    border: 1px solid rgb(92, 92, 92);
+}
+
+.git-docviewer-find-notFound {
+    display: inline-block;
+    float: left;
+    padding: 0px 6px;
+    margin: 4px 2px;
+    border-radius: 2px;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+    background-clip: padding-box;
+    border-width: 1px;
+    border-style: solid;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    border-image: none;
+    border-color: rgba(255, 0, 0, 0.32) rgba(255, 0, 0, 0.38) rgba(255, 0, 0, 0.42);
+    box-shadow: 0px 1px 0px rgba(255, 0, 0, 0.05) inset, 0px 1px 0px rgba(255, 255, 255, 0.05);
+    outline-style: none;
+    transition-property: background-color, border-color, box-shadow;
+    transition-duration: 150ms;
+    transition-timing-function: ease;
+    background-color: #F5F5F5;
+    width: 45px;
+    color: #FF0000;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: bold;
+}
+
+
+.searchBusy {
+    background: url('Images/spinner_transp.gif') no-repeat right center;
+}
+
+.messageDIV {
+    z-index: 1001;
+    height: 70px;
+    width: 240px;
+    font-family: tahoma;
+    font-size: 10pt;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1002;
+    display: none;
+    text-align: center;
+    border: 2px solid rgb(92, 92, 92);
+    border-radius: 10px;
+}
+
+/*Overlay message box or loading animation placeholder*/
+
+.git_xdoc_viewer_class_overlay {
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    z-index: 5555;
+    -moz-opacity: 0.8;
+    opacity: .80;
+    filter: alpha(opacity=80);
+}
+
+.git_xdoc_viewer_white_content_placeholder {
+    display: none;
+    position: absolute;
+    left: calc(50% - 111px);
+    top: calc(50% - 58px);
+    width: 255px;
+    height: 85px;
+    /*padding: 16px;*/
+    /*border: 16px solid orange;*/
+    background-color: white;
+    z-index: 5002;
+    overflow: auto;
+    border-width: 9px;
+    border-style: solid;
+    border-color: transparent;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    background-clip: content-box;
+    border-image: url("Images/shadow.png") 9 9 9 9 repeat repeat;
+}
+
+.transparentoverlay {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(51,51,51,0.7);
+    z-index: 5556;
+}
+
+.progressmessage {
+    display: none;
+    position: absolute;
+    width: 255px;
+    height: 77px;
+    background-color: white;
+    z-index: 5557;
+    overflow: auto;
+    border-width: 9px;
+    border-style: solid;
+    border-color: transparent;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    background-clip: content-box;
+    border-image: url("Images/shadow.png") 9 9 9 9 repeat repeat;
+    box-sizing: content-box;
+}
+
+
+
+
+.passworddialog {
+    display: none;
+    z-index: 5557;
+    position: absolute;
+    min-width: 300px;
+    width: 400px;
+    padding: 6px;
+    background: white;
+    border: 1px solid #000;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    color: black;
+    cursor: default;
+    font-size: 15px;
+    -webkit-user-select: text;
+    border-image: url(Images/shadow.png) 9 9 9 9 repeat repeat;
+}
+
+.passworWarningMessage {
+    display: none;
+    z-index: 5557;
+    position: absolute;
+    width:400px;
+    background-color: white;
+    border: 1px solid #000;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    color: black;
+    cursor: default;
+    font-size: 15px;
+    -webkit-user-select: text;
+    border-image: url(Images/shadow.png) 9 9 9 9 repeat repeat;
+}
+
+.white_content {
+    display: block;
+    position: absolute;
+    left: calc(50% - 127px);
+    top: calc(50% - 58px);
+    width: 255px;
+    height: 77px;
+    /* padding: 16px; */
+    /* border: 16px solid orange; */
+    background-color: white;
+    z-index: 5003;
+    overflow: auto;
+    border-width: 9px;
+    border-style: solid;
+    border-color: transparent;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    background-clip: content-box;
+    border-image: url("Images/shadow.png") 9 9 9 9 repeat repeat;
+    box-sizing: content-box;
+}
+
+.white_content_messagebox {
+    display: block;
+    position: absolute;
+    left: calc(50% - 200px);
+    top: calc(50% - 50px);
+    /*width: 400px;
+    height: 100px;*/
+    background-color: white;
+    z-index: 6556;
+    overflow: auto;
+    border-width: 9px;
+    border-style: solid;
+    border-color: transparent;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    background-clip: content-box;
+    border-image: url("Images/shadow.png") 9 9 9 9 repeat repeat;
+    box-sizing: content-box;
+}
+
+.white-content-messagebox {
+    display: block;
+    position: absolute;
+    left: calc(50% - 200px);
+    top: calc(50% - 50px);
+    width: 400px;
+    background-color: white;
+    z-index: 5556;
+    overflow: auto;
+    border-width: 9px;
+    border-style: solid;
+    border-color: transparent;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    background-clip: content-box;
+    border-image: url("Images/shadow.png") 9 9 9 9 repeat repeat;
+    box-sizing: content-box;
+}
+
+
+.messageboxyesnocancel {
+    display: block;
+    position: absolute;
+    left: calc(50% - 200px);
+    top: calc(50% - 50px);
+    width: 400px;
+    height: 87px;
+    background-color: white;
+    z-index: 5556;
+    overflow: auto;
+    border-width: 9px;
+    border-style: solid;
+    border-color: transparent;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    background-clip: content-box;
+    border-image: url("Images/shadow.png") 9 9 9 9 repeat repeat;
+    box-sizing: content-box;
+}
+
+.git-docviewer-page {
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    direction: ltr;
+    position: relative;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    background-clip: content-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+.xdoc_viewer_printdialogBox {
+    margin-top: -100px;
+    margin-left: -141px;
+    width: 286px;
+    height: 203px;
+    top: 50%;
+    left: 50%;
+    z-index: 1004;
+    display: none;
+    background-color: #e7e9ef;
+    position: absolute;
+    text-align: center;
+    border-width: 9px;
+    border-style: solid;
+    border-color: transparent;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    background-clip: content-box;
+    border-image: url("Images/shadow.png") 9 9 9 9 repeat repeat;
+}
+
+.xdoc_docviewer_printdialog_col {
+    float: left;
+    width: 50%;
+    text-align: left;
+}
+
+.xdoc_docviewer_printdialog_row {
+    clear: both;
+    margin: 0 0 7px;
+    font-size: 20px;
+}
+
+.git_xdoc_docviewer_printdialog_class_close {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 20px;
+    background: none;
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.git_xdoc_docviewer_printdialog_class_print {
+    float: left;
+    width: 100%;
+    height: 26px;
+    line-height: 26px;
+    vertical-align: middle;
+    margin: 7px 0px 7px 0px;
+    border-radius: 2px;
+    outline: none;
+}
+
+.xdoc_viewer_printdialog_printbutton {
+    border: none;
+    outline: none;
+    /*box-shadow: 0px 3px 2px 0px #2c80a2;*/
+    color: #888;
+    font-size: 14px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+    background-color: #fbfcfd;
+    font-weight: bold;
+    /*background-image:url(Images/1.png) ;*/
+    background-repeat: no-repeat;
+    background-position: 200px;
+}
+
+    .xdoc_viewer_printdialog_printbutton:hover {
+        background-color: hsla(0,0%,0%,.12);
+        cursor: pointer;
+    }
+
+    .xdoc_viewer_printdialog_printbutton:active {
+        padding-top: 2px;
+        box-shadow: none;
+    }
+
+
+.click-nav {
+    width: 12px;
+    float: left;
+    height: 28px;
+}
+
+    .click-nav ul {
+        font-weight: 900;
+        padding: 0px;
+        margin: 0px;
+    }
+
+        .click-nav ul li {
+            position: relative;
+            list-style: none;
+            cursor: pointer;
+            text-align: left;
+            width: 117px;
+        }
+
+            .click-nav ul li ul {
+                position: absolute;
+                left: -30px;
+                right: 0;
+                border: 2px solid gray;
+            }
+
+        .click-nav ul .clicker {
+            background: #404040;
+            color: #F2F2F2;
+        }
+
+            .click-nav ul .clicker:hover,
+            .click-nav ul .active {
+                background: none repeat scroll 0% 0% #3D3D3D;
+            }
+
+    .click-nav img {
+        position: absolute;
+        top: 9px;
+        left: 12px;
+    }
+
+    .click-nav ul li a {
+        transition: background-color 0.2s ease-in-out;
+        -webkit-transition: background-color 0.2s ease-in-out;
+        -moz-transition: background-color 0.2s ease-in-out;
+        display: block;
+        padding: 4px 1px 4px 12px;
+        background: none repeat scroll 0% 0% #3D3D3D;
+        color: #F2F2F2;
+        text-decoration: none;
+        width: 130px;
+    }
+
+        .click-nav ul li a:hover {
+            background: none repeat scroll 0% 0% #a9b2b2;
+            border: 1px solid hsla(0,0%,0%,.35);
+            border-color: hsla(0,0%,0%,.32) hsla(0,0%,0%,.38) hsla(0,0%,0%,.42);
+            box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset, 0 0 1px hsla(0,0%,100%,.15) inset, 0 1px 0 hsla(0,0%,100%,.05);
+            -webkit-transition-property: background-color, border-color, box-shadow;
+            -webkit-transition-duration: 150ms;
+            -webkit-transition-timing-function: ease;
+            transition-property: background-color, border-color, box-shadow;
+            transition-duration: 150ms;
+            transition-timing-function: ease;
+        }
+    /* Fallbacks */
+    .click-nav .no-js ul {
+        padding: 0px;
+        top: 29px;
+        display: none;
+    }
+/*.click-nav .no-js:hover ul {
+    padding:0px;
+    top: 29px;
+	display:block;
+}*/
+.git-zoom-text-input {
+    position: absolute;
+    padding-left: 4px;
+    width: 50px;
+    left: 2px;
+    top: 3px;
+    height: 21px;
+    border: none;
+    background-color: #404040;
+    color: white;
+}
+
+input[class=git-zoom-text-input]:disabled {
+    color: gray;
+    user-select: none;
+}
+
+.git_xdoc_docviewer_formfill_hover {
+    border: 2px solid #000;
+}
+
+
+.git-messagebox-botton {
+    border: none;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0px 15px 0px 0px;
+}
+
+/*Thumbnail Properties*/
+.git-viewer-toolbarContent {
+    box-shadow: inset -1px 0 0 hsla(0,0%,0%,.25);
+    -webkit-user-select: none; /* Chrome/Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+    -o-user-select: none;
+    user-select: none;
+}
+
+.git-viewer-thumbnail {
+    box-shadow: 0 0 0 1px hsla(0,0%,0%,.5);
+    opacity: 1;
+    border: 1px solid transparent;
+}
+
+.git-viewer-thumbnail-page-container {
+    opacity: 1;
+    padding: 0px;
+    margin: auto;
+    padding-top: 5px;
+}
+
+.git-viewer-thumbnail-page {
+    
+    border: 1px solid #F0F8FF;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.2);
+    padding: 0px;
+    margin: auto;
+}
+
+    .git-viewer-thumbnail-page:hover {
+        border: 1px solid #d6dbe9;
+        padding: 0px;
+        margin: auto;
+        background-clip: padding-box;
+        -webkit-box-shadow: 0px 0px 3px 4px rgba(204,206,219,0.7);
+        -moz-box-shadow: 0px 0px 3px 4px rgba(204,206,219,0.7);
+        box-shadow: 0px 0px 3px 4px rgba(204,206,219,0.7);
+    }
+
+.git-viewer-thumbnail-page-active {
+    border: 1px solid #abcde1;
+    padding: 0px;
+    margin: auto;
+    background-clip: padding-box;
+    -webkit-box-shadow: 0px 0px 2px 3px rgba(173,205,225,0.8);
+    -moz-box-shadow: 0px 0px 2px 3px rgba(173,205,225,0.8);
+    box-shadow: 0px 0px 2px 3px rgba(173,205,225,0.8);
+}
+
+.git-viewer-bookmark {
+    box-shadow: 0 0 0 1px hsla(0,0%,0%,.5);
+    border: 1px solid transparent;
+}
+
+.git-viewer-outlines {
+    box-shadow: 0 0 0 1px hsla(0,0%,0%,.5);
+    border: 1px solid transparent;
+}
+
+.toggled {
+    background-color: hsla(0,0%,0%,.3);
+    border-color: hsla(0,0%,0%,.4) hsla(0,0%,0%,.45) hsla(0,0%,0%,.5);
+    box-shadow: 0 1px 1px hsla(0,0%,0%,.1) inset, 0 0 1px hsla(0,0%,0%,.2) inset, 0 1px 0 hsla(0,0%,100%,.05);
+    transition-property: background-color, border-color, box-shadow;
+    transition-duration: 10ms;
+    transition-timing-function: linear;
+}
+
+    .toggled:hover {
+        background-color: hsla(0,0%,0%,.4);
+        border-color: hsla(0,0%,0%,.4) hsla(0,0%,0%,.45) hsla(0,0%,0%,.5);
+        box-shadow: 0 1px 1px hsla(0,0%,0%,.1) inset, 0 0 1px hsla(0,0%,0%,.2) inset, 0 1px 0 hsla(0,0%,100%,.05);
+        transition-property: background-color, border-color, box-shadow;
+        transition-duration: 10ms;
+        transition-timing-function: linear;
+    }
+
+
+
+/*JQTree CSS*/
+ul.jqtree-tree {
+    list-style: none outside;
+    margin-left: 0;
+    margin-bottom: 0;
+    padding: 0;
+}
+    ul.jqtree-tree ul.jqtree_common {
+        list-style: none outside;
+        margin-left: 12px;
+        margin-right: 0;
+        margin-bottom: 0;
+        padding: 0;
+        display: block;
+    }
+
+    ul.jqtree-tree li.jqtree-closed > ul.jqtree_common {
+        display: none;
+    }
+
+    ul.jqtree-tree li.jqtree_common {
+        clear: both;
+        list-style-type: none;
+    }
+
+    ul.jqtree-tree .jqtree-toggler {
+        border-bottom: none;
+        color: #f2f2f2;
+        text-decoration: none;
+        vertical-align: middle;
+    }
+
+        ul.jqtree-tree .jqtree-toggler:hover {
+            text-decoration: none;
+        }
+
+        ul.jqtree-tree .jqtree-toggler.jqtree-closed {
+            background-position: 0 0;
+        }
+
+        ul.jqtree-tree .jqtree-toggler.jqtree-toggler-left {
+            margin-right: 0.5em;
+        }
+
+        ul.jqtree-tree .jqtree-toggler.jqtree-toggler-right {
+            margin-left: 0.5em;
+        }
+
+    ul.jqtree-tree .jqtree-element {
+        cursor: pointer;
+        position: relative;
+    }
+
+    ul.jqtree-tree .jqtree-title {
+        
+        vertical-align: middle;
+        margin-left: 1.5em;
+        display: inline-block;
+        font-size: 13px;
+    }
+
+        ul.jqtree-tree .jqtree-title.jqtree-title-folder {
+            margin-left: 0px;
+        }
+
+    ul.jqtree-tree li.jqtree-folder {
+        margin-bottom: 4px;
+    }
+
+        ul.jqtree-tree li.jqtree-folder.jqtree-closed {
+            margin-bottom: 1px;
+        }
+
+    ul.jqtree-tree li.jqtree-ghost {
+        position: relative;
+        z-index: 10;
+        margin-right: 10px;
+        /* todo: add classes to span? */
+    }
+
+        ul.jqtree-tree li.jqtree-ghost span {
+            display: block;
+        }
+
+            ul.jqtree-tree li.jqtree-ghost span.jqtree-circle {
+                border: solid 2px #0000ff;
+                -webkit-border-radius: 100px;
+                -moz-border-radius: 100px;
+                border-radius: 100px;
+                height: 8px;
+                width: 8px;
+                position: absolute;
+                top: -4px;
+                left: -6px;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+
+            ul.jqtree-tree li.jqtree-ghost span.jqtree-line {
+                background-color: #0000ff;
+                height: 2px;
+                padding: 0;
+                position: absolute;
+                top: -1px;
+                left: 2px;
+                width: 100%;
+            }
+
+        ul.jqtree-tree li.jqtree-ghost.jqtree-inside {
+            margin-left: 48px;
+        }
+
+    ul.jqtree-tree span.jqtree-border {
+        position: absolute;
+        display: block;
+        left: -2px;
+        top: 0;
+        border: solid 2px #0000ff;
+        border-radius: 6px;
+        margin: 0;
+        box-sizing: content-box;
+    }
+
+    ul.jqtree-tree li.jqtree-selected > .jqtree-element,
+    ul.jqtree-tree li.jqtree-selected > .jqtree-element:hover {
+        background-color: #97BDD6;
+        background: -webkit-gradient(linear, left top, left bottom, from(#BEE0F5), to(#89AFCA));
+        background: -moz-linear-gradient(top, #BEE0F5, #89AFCA);
+        background: -ms-linear-gradient(top, #BEE0F5, #89AFCA);
+        background: -o-linear-gradient(top, #BEE0F5, #89AFCA);
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+    }
+
+    ul.jqtree-tree .jqtree-moving > .jqtree-element .jqtree-title {
+        outline: dashed 1px #0000ff;
+    }
+
+    ul.jqtree-tree.jqtree-rtl {
+        direction: rtl;
+    }
+
+        ul.jqtree-tree.jqtree-rtl ul.jqtree_common {
+            margin-left: 0;
+            margin-right: 12px;
+        }
+
+        ul.jqtree-tree.jqtree-rtl .jqtree-toggler {
+            margin-left: 0.5em;
+            margin-right: 0;
+        }
+
+        ul.jqtree-tree.jqtree-rtl .jqtree-title {
+            margin-left: 0;
+            margin-right: 1.5em;
+        }
+
+            ul.jqtree-tree.jqtree-rtl .jqtree-title.jqtree-title-folder {
+                margin-right: 0;
+            }
+
+        ul.jqtree-tree.jqtree-rtl li.jqtree-ghost {
+            margin-right: 0;
+            margin-left: 10px;
+        }
+
+            ul.jqtree-tree.jqtree-rtl li.jqtree-ghost span.jqtree-circle {
+                right: -6px;
+            }
+
+            ul.jqtree-tree.jqtree-rtl li.jqtree-ghost span.jqtree-line {
+                right: 2px;
+            }
+
+            ul.jqtree-tree.jqtree-rtl li.jqtree-ghost.jqtree-inside {
+                margin-left: 0;
+                margin-right: 48px;
+            }
+
+        ul.jqtree-tree.jqtree-rtl span.jqtree-border {
+            right: -2px;
+        }
+
+span.jqtree-dragging {
+    color: #fff;
+    background: #000;
+    opacity: 0.6;
+    cursor: pointer;
+    padding: 2px 8px;
+}
+
+/* IE 6, 7, 8 */
+@media \0screen\,screen\9 {
+    ul.jqtree-tree li.jqtree-ghost span.jqtree-circle {
+        background: url(jqtree-circle.png) no-repeat;
+        border: 0 none;
+    }
+}
+
+
+
+/*Custom css*/
+
+ul.jqtree-tree .jqtree-toggler.jqtree-toggler-left {
+    position: absolute;
+    font: normal 0.36cm "Times New Roman";
+    padding: 2px 4px;
+}
+
+ul.jqtree-tree .jqtree-title.jqtree-title-folder {
+    margin-left: 20px;
+}
+
+
+/*Splitter CSS*/
+.splitter_panel {
+    position: relative;
+}
+
+    .splitter_panel .vsplitter {
+        background-color: grey;
+        cursor: col-resize;
+        z-index: 1;
+        width: 2px;
+    }
+
+    .splitter_panel .hsplitter {
+        background-color: #5F5F5F;
+        cursor: row-resize;
+        z-index: 800;
+        height: 7px;
+    }
+
+        .splitter_panel .vsplitter.splitter-invisible,
+        .splitter_panel .hsplitter.splitter-invisible {
+            background: none;
+        }
+
+    .splitter_panel .vsplitter, .splitter_panel .left_panel, .splitter_panel .right_panel,
+    .splitter_panel .hsplitter, .splitter_panel .top_panel, .splitter_panel .bottom_panel {
+        position: absolute;
+        overflow: auto;
+    }
+
+    .splitter_panel .vsplitter, .splitter_panel .left_panel, .splitter_panel .right_panel {
+        height: 100%;
+    }
+
+    .splitter_panel .hsplitter, .splitter_panel .top_panel, .splitter_panel .bottom_panel {
+        width: 100%;
+    }
+
+    .splitter_panel .top_panel, .splitter_panel .left_panel, .splitter_panel .vsplitter {
+        top: 0;
+    }
+
+    .splitter_panel .top_panel, .splitter_panel .bottom_panel, .splitter_panel .left_panel, .splitter_panel .hsplitter {
+        left: 0;
+    }
+
+    .splitter_panel .bottom_panel {
+        bottom: 0;
+    }
+
+    .splitter_panel .right_panel {
+        right: 0;
+    }
+
+.splitterMask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+}
+
+
+
+/* Annotation Styles*/
+.custom-menu {
+    display: none;
+    z-index: 1000;
+    position: absolute;
+    overflow: hidden;
+    border: 1px solid #CCC;
+    white-space: nowrap;
+    background: #FFF;
+    color: #333;
+    border-radius: 5px;
+    padding: 0;
+}
+
+    /* Each of the items in the list */
+    .custom-menu li {
+        padding: 8px 12px;
+        cursor: pointer;
+        list-style-type: none;
+        transition: all .3s ease;
+    }
+
+        .custom-menu li:hover {
+            background-color: #DEF;
+        }
+
+
+
+.git-annot-focus-rect {
+    position: absolute;
+    z-index: 3001;
+    display: block;
+    color: black;
+    background-color: transparent;
+    margin: 0px;
+    padding: 0px;
+    height: 1px;
+    width: 1px;
+}
+
+.git-annot-focus-rect-left {
+    border-width: 0px 0px 0px 2px;
+    border-style: none none none dotted;
+}
+
+.git-annot-focus-rect-top {
+    border-width: 2px 0px 0px;
+    border-style: dotted none none;
+}
+
+.git-annot-focus-rect-right {
+    border-width: 0px 2px 0px 0px;
+    border-style: none dotted none none;
+}
+
+.git-annot-focus-rect-bottom {
+    border-width: 0px 0px 2px;
+    border-style: none none dotted;
+}
+
+
+
+.git-annots-panel {
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+
+
+
+.draggable {
+    background-color: yellow;
+}
+
+.git-annot-status {
+    background-repeat: no-repeat;
+    background-size: 18px;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin: 1px;
+    border: 1px solid transparent;
+    box-sizing: initial;
+  
+}
+
+.git-annot-label-status {
+    color: gray;
+    font-size: medium;
+    font-family: "Verdana";
+    margin-left: -5px;
+}
+
+
+
+.git-right-pane-resizer-icon {
+    background-repeat: no-repeat;
+    background-size: 11px;
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    top: 0;
+}
+
+
+
+.git-right-pane-icon-minimize {
+    left: 2px;
+    background-image: url("Images/minimize_right.png");
+}
+
+.git-right-pane-icon-maximize {
+    left: 0px;
+    background-image: url("Images/minimize_left.png");
+}
+
+
+.git-right-pane-resizer {
+    background-color: rgb(241, 241, 241);
+    border: 1px solid #ddd;
+}
+
+    .git-right-pane-resizer:hover {
+        background-clip: padding-box;
+        background-repeat: no-repeat;
+        background-color: #C8C8C8;       
+        box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset, 0 0 1px hsla(0,0%,100%,.15) inset, 0 1px 0 hsla(0,0%,100%,.05);
+        -webkit-transition-property: background-color, border-color, box-shadow;
+        -webkit-transition-duration: 150ms;
+        -webkit-transition-timing-function: ease;
+        transition-property: background-color, border-color, box-shadow;
+        transition-duration: 150ms;
+        transition-timing-function: ease;
+        -webkit-box-sizing: content-box;
+        box-sizing: content-box;
+    }
+
+.git-annot-reply-count {
+    background-image: url("Images/reply.png");
+    background-repeat: no-repeat;
+    background-size: 18px;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    margin-top: 2px;
+    margin-right: -5px;
+    float: right;
+    border: 1px solid transparent;
+}
+
+.git-annot-status:hover {
+    background-clip: padding-box;
+    border: 1px solid hsla(0,0%,0%,.35);
+    border-color: hsla(0,0%,0%,.32) hsla(0,0%,0%,.38) hsla(0,0%,0%,.42);
+    box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset, 0 0 1px hsla(0,0%,100%,.15) inset, 0 1px 0 hsla(0,0%,100%,.05);
+    -webkit-transition-property: background-color, border-color, box-shadow;
+    -webkit-transition-duration: 150ms;
+    -webkit-transition-timing-function: ease;
+    transition-property: background-color, border-color, box-shadow;
+    transition-duration: 150ms;
+    transition-timing-function: ease;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.git-viewer-rightpane-header-text {
+    color: white;
+    font-size: small;
+    font-family: arial;
+    font-weight: bold;
+}
+
+.git-rightclick-menu-item {
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 20px;
+    text-decoration: none;
+    z-index: 3002;
+}
+
+.git-right-click-menu {
+    position: absolute;
+    border-radius: 6px;
+    background-color: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    color: black;
+    font-family: Helvetica;
+    font-size: 14px;
+    padding: 5px 0;
+    list-style: none;
+    margin: 0;
+    width: 100px;
+    height: auto;
+    border: 1px solid gray;
+    z-index: 3002;
+    display: none;
+}
+
+.git-rightclick-menu-item:hover {
+    background-color: dodgerblue;
+    color: white;
+}
+
+.ui-tooltip-content {
+    font-size: 10pt;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.git-docviewer-sec-download {
+    width: 23px;
+    height: 20px;
+    margin: 3px 4px 0px 2px;
+    float: left;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+

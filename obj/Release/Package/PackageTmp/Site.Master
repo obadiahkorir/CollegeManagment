@@ -1,0 +1,421 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="NIT.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">   
+<title><%: Page.Title %> - NIT</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content=""> 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="~/vendor/toastr/toastr.min.css">
+<link rel="stylesheet" href="~/vendor/fullcalendar/fullcalendar.css">
+<!-- Ionicons -->
+<link rel="stylesheet" href="vendor/ionicons-2.0.1/css/ionicons.min.css"/>
+<!-- DataTables -->
+<link rel="stylesheet" href="vendor/datatables/css/dataTables.bootstrap4.css"/>
+ <%--Datepicker link--%>    
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker3.min.css" rel="stylesheet"/>
+<link rel="Stylesheet" type="text/css" href="CSS/uploadify.css" />
+<link href="images/logo.png" rel="shortcut icon" type="image/x-icon" />
+<!-- Bootstrap Core CSS -->
+<link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap-float-label.css"/>
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- MetisMenu CSS -->
+<link href="vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="dist/css/sb-admin-2.css" rel="stylesheet">
+<!-- Morris Charts CSS -->
+<link href="vendor/morrisjs/morris.css" rel="stylesheet">
+<!-- Custom Fonts -->
+<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!-- bootstrap wysihtml5 - text editor -->
+<link rel="stylesheet" href="vendor/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"/>
+</head>
+<body>
+<form runat="server" enctype="multipart/form-data" >
+<asp:ScriptManager runat="server"></asp:ScriptManager>
+<div id="wrapper">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="Dashboard.aspx" style="color: #ffffff;"><label id='fullname'><strong>NAIROBI INTERNATIONAL TRAINING COLLEGE </strong></label></a>
+    </div>
+    <!-- /.navbar-header -->
+
+    <ul class="nav navbar-top-links navbar-right">
+        <li>
+            <a href="#">
+                <i class="fa fa-facebook-square" aria-hidden="true"></i>
+            </a>
+        </li> 
+         <li>
+            <a href="#">
+                 <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+        </li>
+      
+
+         <li>
+            <a href="#">
+                 <i class="fa fa-twitter-square" aria-hidden="true"></i>
+            </a>
+        </li> 
+         <li>
+            <a href="#">
+                <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+            </a>
+        </li>
+        <!-- /.dropdown -->
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-alerts">
+                     
+                <li class="divider"></li>
+                <li>
+                    <a href="#">
+                        <div>
+                            <i class="fa fa-envelope-open fa-fw"></i> Message Received
+                            <span class="pull-right text-muted small">4 minutes ago</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a class="text-center" href="#">
+                        <strong>See All Notifications</strong>
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </li>
+            </ul>
+            <!-- /.dropdown-alerts -->
+        </li>
+        <!-- /.dropdown -->
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <% if (Convert.ToInt32(Session["usertype"]) == 0)
+                   {
+                    //Student
+                 %>
+                <i class="fa fa-user-circle-o"></i>&nbsp;<%= Session["StudentName"].ToString().ToUpper() %> <i class="fa fa-caret-down"></i>
+
+                <% }else if (Convert.ToInt32(Session["usertype"]) == 1)
+                   {
+                    //Tutor
+                    %>
+                 <i class="fa fa-user-circle-o"></i>&nbsp;<%= Session["TutorName"].ToString().ToUpper() %> <i class="fa fa-caret-down"></i>
+                   <%}%>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+                <li><a href="Profile.aspx#profile"><i class="fa fa-user-circle-o"></i> My Profile</a></li>
+                 <li class="divider"></li>
+                <li><a href="Profile.aspx#changepassword"><i class="fa fa-lock fa-fw"></i> Change Password</a></li>
+                <li class="divider"></li>
+                <li><a href="Logout.aspx"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                </li>
+            </ul>
+            <!-- /.dropdown-user -->
+        </li>
+        <!-- /.dropdown -->
+    </ul>
+  <!-- /.navbar-top-links -->
+
+<div class="navbar-default sidebar" role="navigation">
+<div class="sidebar-nav navbar-collapse">
+    <ul class="nav" id="side-menu">
+        <li style="background-color: #FFFFFF; height: 100px; text-align: center; vertical-align: text-top; padding: 10px; color: #000000;">
+         <img src="images/logo.png" style="height: 100%;"/>
+        </li>
+        <li>
+            <a href="Dashboard.aspx"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+        </li>
+        <%
+            int type = Convert.ToInt32(Session["usertype"]);
+            if (type == 0)
+            {
+                //student
+        %>
+        <li>
+            <a href="#"> <i class="fa fa-folder-open"></i>&nbsp;My Documents<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+            <li><a href="FeeStatement.aspx">Fee Statement</a></li>
+            <li><a href="Academic_Documents.aspx">Academic Documents</a></li>
+            </ul>
+        </li>
+
+         <li>
+                <a href="#"> <i class="fa fa-calendar"></i>&nbsp;My Timetables<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                <li><a href="Timetable_Class.aspx"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;Class Timetable</a></li>
+                <li><a href="Timetable_Exam.aspx"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;Exam Timetable</a></li>
+                </ul>
+            </li>
+
+        <li>
+            <a href="#"><i class="fa fa-graduation-cap"></i>&nbsp;Academics<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+                 <li>
+                    <a href="Register_Units.aspx"><i class="fa fa-graduation-cap"></i>&nbsp;Register Units</a>
+                </li>
+                <li>
+                    <a href="Exam_Resluts.aspx"><i class="fa fa-graduation-cap"></i>&nbsp;Exam Results</a>
+                </li>
+                <li>
+                    <a href="Tutor_Ratings.aspx"><i class="fa fa-pencil-square-o nav-icon">&nbsp;</i>Rate your Tutor</a>
+                </li>
+            </ul>
+            <!-- /.nav-second-level -->
+        </li>
+         <li>
+            <a href="#"><i class="fa fa-comments"></i>&nbsp;Feedbacks<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+                <li>
+                    <a href="File_Complaint.aspx"><i class="fa fa-comment"></i>&nbsp;Report Complaint</a>
+                </li>
+            </ul>
+            <!-- /.nav-second-level -->
+        </li>
+                       
+        <% }
+        else if(type==1)
+        {
+                //tutor
+            %>
+             <li>
+                <a href="#"> <i class="fa fa-table"></i>&nbsp;Students<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li><a href="Students_Complaints.aspx"><i class="fa fa-edit" aria-hidden="true"></i>&nbsp;All Complaints</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#"><i class="fa fa-edit fa-fw"></i>&nbsp;My Classes</a>
+            </li>
+
+             <li>
+                <a href="#"> <i class="fa fa-calendar"></i>&nbsp;My Timetables<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li><a href="Timetable_Class_Tutor.aspx"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;Class Timetable</a></li>
+                    <li><a href="Cat_Dates.aspx"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;Cat Dates</a></li>
+                    <li><a href="Timetable_Exam_Tutor.aspx"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;Exam Timetable</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="Payslip.aspx"><i class="fa fa-edit fa-fw"></i>&nbsp;View Payslip</a>
+            </li>
+        <%
+        }
+        %>
+    </ul>
+</div>
+<!-- /.sidebar-collapse -->
+</div>
+    <!-- /.navbar-static-side -->
+</nav>
+
+<div id="page-wrapper">
+<div class="row">
+<asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+</div>
+<!-- /#page-wrapper -->
+
+</div>
+</div>
+</form>
+<footer>
+<p>
+    <label style="width:100%; text-align:center;">&copy; <%: DateTime.Now.Year %> - <a href="#" runat="server">Infogain</a></label>
+</p>
+</footer>
+    
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<%--<script type="text/javascript" src="scripts/jquery-1.3.2.min.js"></script>--%>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!-- DataTables -->
+<script src="vendor/datatables/js/jquery.dataTables.js"></script>
+<script src="vendor/datatables/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript" src="scripts/jquery.uploadify.js"></script>
+<script src="vendor/fullcalendar/lib/moment.min.js"></script> 
+<script src="vendor/fullcalendar/lib/jquery-ui.custom.min.js"></script> 
+<script src="vendor/fullcalendar/fullcalendar.min.js"></script> 
+<script src="vendor/toastr/toastr.min.js"></script> 
+<!-- Metis Menu Plugin JavaScript -->
+<script src="vendor/metisMenu/metisMenu.min.js"></script>
+<!-- Morris Charts JavaScript -->
+<script src="vendor/raphael/raphael.min.js"></script>
+<script src="vendor/morrisjs/morris.min.js"></script>
+<!-- Custom Theme JavaScript -->
+<script src="dist/js/sb-admin-2.js"></script>
+<%-- Datepicker script ref --%>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js" charset="UTF-8"></script>
+<!-- CK Editor -->
+<script src="vendor/ckeditor/ckeditor.js"></script>
+<!-- Bootstrap WYSIHTML5 -->
+<script src="vendor/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<script type="text/javascript">
+   $('.date').datepicker({
+        format: "mm/dd/yy",
+        maxViewMode: 3,
+        todayBtn: true,
+        clearBtn: true,
+        autoclose: true,
+        calendarWeeks: true,
+        toggleActive: true
+   });
+   $(function () {
+       // bootstrap WYSIHTML5 - text editor
+       $('.textarea').wysihtml5({
+           toolbar: { fa: true }
+       });
+   });
+    function Confirm() {
+        var confirmValue = document.createElement("INPUT");
+        confirmValue.type = "hidden";
+        confirmValue.name = "confirm_value";
+        if (confirm("Confirm Profile Edit?")) {
+            confirmValue.value = "Yes";
+        } else {
+            confirmValue.value = "No";
+        }
+        document.forms[0].appendChild(confirmValue);
+    }
+
+    function ConfirmPasswordChange() {
+        var confirmValue = document.createElement("INPUT");
+        confirmValue.type = "hidden";
+        confirmValue.name = "confirm_value";
+        if (confirm("Change Password")) {
+            confirmValue.value = "Yes";
+        } else {
+            confirmValue.value = "No";
+        }
+        document.forms[0].appendChild(confirmValue);
+    }
+
+    function getmeTohomeConfirm() {
+        if (confirm("Go to your Email and activate your account?")) {
+
+            window.location.href = "../Default.aspx";
+        }
+    }
+
+    function loadPasswordPanel() {
+        var passwordpanelid = document.getElementById("changepassword");
+        var profilepanelid = document.getElementById("profile");
+        $(profilepanelid).removeClass('active');
+        $(passwordpanelid).toggleClass('active');
+    }
+
+    $(function () {
+        $('#myTutorRate').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false
+        });
+    });
+    $(function () {
+        $('#myGrades').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false
+        });
+    });
+    $(function () {
+        $('#filedcomplaints').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false
+        });
+    });
+
+    $(function () {
+        $('#myClassTimetable').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false
+        });
+    });
+    $(function () {
+        $('#myExamTimetable').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false
+        });
+    });
+    $(function () {
+        $('#myUnitsRegister').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false
+        });
+    });
+    
+    $(function () {
+        $('#myRegisteredunits').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false
+        });
+    });
+    
+</script>
+<script type="text/javascript">
+    function showToast(mytoastclass, message) {
+        var toastclass = mytoastclass;
+        msg = message;
+        toastr.options.showDuration = 300;
+        toastr.options.hideDuration = 200;
+        toastr.options.timeOut = 5000;
+        toastr.options.extendedTimeOut = 1000;
+        toastr.options.showEasing = "swing";
+        toastr.options.hideEasing = "linear";
+        toastr.options.showMethod = "fadeIn";
+        toastr.options.hideMethod = "fadeOut";
+        toastr.options.tapToDismiss = true;
+
+        $('#toastrOptions').text('Command: toastr[toastclass]("'
+            + msg
+            + ("")
+            + '")\n\ntoastr.options = '
+            + JSON.stringify(toastr.options, null, 2)
+        );
+
+        var $toast = toastr[toastclass](msg, ''); // Wire up an event handler to a button in the toast, if it exists
+    }
+</script>
+</body>
+</html>

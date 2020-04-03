@@ -1,0 +1,701 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/StudentEngine" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/StudentEngine" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/StudentEngine" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="FnLogin">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="studentCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="password" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnLogin_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetItemImage">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="studentCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetItemImage_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetCustomerStatement">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="studentCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="dateForm" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="dateTo" type="date" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetCustomerStatement_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnBLOBCustomerStatement">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="customerrNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="dateFrom" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="dateTo" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="bigText" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnBLOBCustomerStatement_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="bigText" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnRandomize">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnRandomize_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnChangePassword">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="studentCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="newPassword" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="oldPassword" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnChangePassword_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnLoadStudentComplaint">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="entryNo" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnLoadStudentComplaint_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnSaveComplaint">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="admNo" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="complaintDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="complaintDetails" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnSaveComplaint_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInsertComplaint">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="admNo" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="complaintDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="complaintDetails" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInsertComplaint_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInsertRating">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="unitCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="studentCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="unitName" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="tutorName" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="tutorRate" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInsertRating_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnCountUnits">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="studentCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnCountUnits_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnUpdateProfile">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="studentCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="phoneNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="address" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="gender" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="email" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnUpdateProfile_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnResetPassword">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="studentCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="newPassword" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnResetPassword_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnLoadAllComplaints">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="admNo" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnLoadAllComplaints_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnLoginTutor">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="tutorCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="password" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnLoginTutor_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnResetTutorPassword">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="tutorCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="newPassword" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnResetTutorPassword_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetSemesterRegCode">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="studentCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetSemesterRegCode_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnSaveComplaintReply">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="complaintNo" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="complaintreplyDetails" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnSaveComplaintReply_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GeneratePayslip">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employeeNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="payMonth" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GeneratePayslip_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGenerateStudentEligibility">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employeeNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="payMonth" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGenerateStudentEligibility_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="FnLogin">
+    <part name="parameters" element="tns:FnLogin" />
+  </message>
+  <message name="FnLogin_Result">
+    <part name="parameters" element="tns:FnLogin_Result" />
+  </message>
+  <message name="GetItemImage">
+    <part name="parameters" element="tns:GetItemImage" />
+  </message>
+  <message name="GetItemImage_Result">
+    <part name="parameters" element="tns:GetItemImage_Result" />
+  </message>
+  <message name="GetCustomerStatement">
+    <part name="parameters" element="tns:GetCustomerStatement" />
+  </message>
+  <message name="GetCustomerStatement_Result">
+    <part name="parameters" element="tns:GetCustomerStatement_Result" />
+  </message>
+  <message name="FnBLOBCustomerStatement">
+    <part name="parameters" element="tns:FnBLOBCustomerStatement" />
+  </message>
+  <message name="FnBLOBCustomerStatement_Result">
+    <part name="parameters" element="tns:FnBLOBCustomerStatement_Result" />
+  </message>
+  <message name="FnRandomize">
+    <part name="parameters" element="tns:FnRandomize" />
+  </message>
+  <message name="FnRandomize_Result">
+    <part name="parameters" element="tns:FnRandomize_Result" />
+  </message>
+  <message name="FnChangePassword">
+    <part name="parameters" element="tns:FnChangePassword" />
+  </message>
+  <message name="FnChangePassword_Result">
+    <part name="parameters" element="tns:FnChangePassword_Result" />
+  </message>
+  <message name="FnLoadStudentComplaint">
+    <part name="parameters" element="tns:FnLoadStudentComplaint" />
+  </message>
+  <message name="FnLoadStudentComplaint_Result">
+    <part name="parameters" element="tns:FnLoadStudentComplaint_Result" />
+  </message>
+  <message name="FnSaveComplaint">
+    <part name="parameters" element="tns:FnSaveComplaint" />
+  </message>
+  <message name="FnSaveComplaint_Result">
+    <part name="parameters" element="tns:FnSaveComplaint_Result" />
+  </message>
+  <message name="FnInsertComplaint">
+    <part name="parameters" element="tns:FnInsertComplaint" />
+  </message>
+  <message name="FnInsertComplaint_Result">
+    <part name="parameters" element="tns:FnInsertComplaint_Result" />
+  </message>
+  <message name="FnInsertRating">
+    <part name="parameters" element="tns:FnInsertRating" />
+  </message>
+  <message name="FnInsertRating_Result">
+    <part name="parameters" element="tns:FnInsertRating_Result" />
+  </message>
+  <message name="FnCountUnits">
+    <part name="parameters" element="tns:FnCountUnits" />
+  </message>
+  <message name="FnCountUnits_Result">
+    <part name="parameters" element="tns:FnCountUnits_Result" />
+  </message>
+  <message name="FnUpdateProfile">
+    <part name="parameters" element="tns:FnUpdateProfile" />
+  </message>
+  <message name="FnUpdateProfile_Result">
+    <part name="parameters" element="tns:FnUpdateProfile_Result" />
+  </message>
+  <message name="FnResetPassword">
+    <part name="parameters" element="tns:FnResetPassword" />
+  </message>
+  <message name="FnResetPassword_Result">
+    <part name="parameters" element="tns:FnResetPassword_Result" />
+  </message>
+  <message name="FnLoadAllComplaints">
+    <part name="parameters" element="tns:FnLoadAllComplaints" />
+  </message>
+  <message name="FnLoadAllComplaints_Result">
+    <part name="parameters" element="tns:FnLoadAllComplaints_Result" />
+  </message>
+  <message name="FnLoginTutor">
+    <part name="parameters" element="tns:FnLoginTutor" />
+  </message>
+  <message name="FnLoginTutor_Result">
+    <part name="parameters" element="tns:FnLoginTutor_Result" />
+  </message>
+  <message name="FnResetTutorPassword">
+    <part name="parameters" element="tns:FnResetTutorPassword" />
+  </message>
+  <message name="FnResetTutorPassword_Result">
+    <part name="parameters" element="tns:FnResetTutorPassword_Result" />
+  </message>
+  <message name="FnGetSemesterRegCode">
+    <part name="parameters" element="tns:FnGetSemesterRegCode" />
+  </message>
+  <message name="FnGetSemesterRegCode_Result">
+    <part name="parameters" element="tns:FnGetSemesterRegCode_Result" />
+  </message>
+  <message name="FnSaveComplaintReply">
+    <part name="parameters" element="tns:FnSaveComplaintReply" />
+  </message>
+  <message name="FnSaveComplaintReply_Result">
+    <part name="parameters" element="tns:FnSaveComplaintReply_Result" />
+  </message>
+  <message name="GeneratePayslip">
+    <part name="parameters" element="tns:GeneratePayslip" />
+  </message>
+  <message name="GeneratePayslip_Result">
+    <part name="parameters" element="tns:GeneratePayslip_Result" />
+  </message>
+  <message name="FnGenerateStudentEligibility">
+    <part name="parameters" element="tns:FnGenerateStudentEligibility" />
+  </message>
+  <message name="FnGenerateStudentEligibility_Result">
+    <part name="parameters" element="tns:FnGenerateStudentEligibility_Result" />
+  </message>
+  <portType name="StudentEngine_Port">
+    <operation name="FnLogin">
+      <input name="FnLogin" message="tns:FnLogin" />
+      <output name="FnLogin_Result" message="tns:FnLogin_Result" />
+    </operation>
+    <operation name="GetItemImage">
+      <input name="GetItemImage" message="tns:GetItemImage" />
+      <output name="GetItemImage_Result" message="tns:GetItemImage_Result" />
+    </operation>
+    <operation name="GetCustomerStatement">
+      <input name="GetCustomerStatement" message="tns:GetCustomerStatement" />
+      <output name="GetCustomerStatement_Result" message="tns:GetCustomerStatement_Result" />
+    </operation>
+    <operation name="FnBLOBCustomerStatement">
+      <input name="FnBLOBCustomerStatement" message="tns:FnBLOBCustomerStatement" />
+      <output name="FnBLOBCustomerStatement_Result" message="tns:FnBLOBCustomerStatement_Result" />
+    </operation>
+    <operation name="FnRandomize">
+      <input name="FnRandomize" message="tns:FnRandomize" />
+      <output name="FnRandomize_Result" message="tns:FnRandomize_Result" />
+    </operation>
+    <operation name="FnChangePassword">
+      <input name="FnChangePassword" message="tns:FnChangePassword" />
+      <output name="FnChangePassword_Result" message="tns:FnChangePassword_Result" />
+    </operation>
+    <operation name="FnLoadStudentComplaint">
+      <input name="FnLoadStudentComplaint" message="tns:FnLoadStudentComplaint" />
+      <output name="FnLoadStudentComplaint_Result" message="tns:FnLoadStudentComplaint_Result" />
+    </operation>
+    <operation name="FnSaveComplaint">
+      <input name="FnSaveComplaint" message="tns:FnSaveComplaint" />
+      <output name="FnSaveComplaint_Result" message="tns:FnSaveComplaint_Result" />
+    </operation>
+    <operation name="FnInsertComplaint">
+      <input name="FnInsertComplaint" message="tns:FnInsertComplaint" />
+      <output name="FnInsertComplaint_Result" message="tns:FnInsertComplaint_Result" />
+    </operation>
+    <operation name="FnInsertRating">
+      <input name="FnInsertRating" message="tns:FnInsertRating" />
+      <output name="FnInsertRating_Result" message="tns:FnInsertRating_Result" />
+    </operation>
+    <operation name="FnCountUnits">
+      <input name="FnCountUnits" message="tns:FnCountUnits" />
+      <output name="FnCountUnits_Result" message="tns:FnCountUnits_Result" />
+    </operation>
+    <operation name="FnUpdateProfile">
+      <input name="FnUpdateProfile" message="tns:FnUpdateProfile" />
+      <output name="FnUpdateProfile_Result" message="tns:FnUpdateProfile_Result" />
+    </operation>
+    <operation name="FnResetPassword">
+      <input name="FnResetPassword" message="tns:FnResetPassword" />
+      <output name="FnResetPassword_Result" message="tns:FnResetPassword_Result" />
+    </operation>
+    <operation name="FnLoadAllComplaints">
+      <input name="FnLoadAllComplaints" message="tns:FnLoadAllComplaints" />
+      <output name="FnLoadAllComplaints_Result" message="tns:FnLoadAllComplaints_Result" />
+    </operation>
+    <operation name="FnLoginTutor">
+      <input name="FnLoginTutor" message="tns:FnLoginTutor" />
+      <output name="FnLoginTutor_Result" message="tns:FnLoginTutor_Result" />
+    </operation>
+    <operation name="FnResetTutorPassword">
+      <input name="FnResetTutorPassword" message="tns:FnResetTutorPassword" />
+      <output name="FnResetTutorPassword_Result" message="tns:FnResetTutorPassword_Result" />
+    </operation>
+    <operation name="FnGetSemesterRegCode">
+      <input name="FnGetSemesterRegCode" message="tns:FnGetSemesterRegCode" />
+      <output name="FnGetSemesterRegCode_Result" message="tns:FnGetSemesterRegCode_Result" />
+    </operation>
+    <operation name="FnSaveComplaintReply">
+      <input name="FnSaveComplaintReply" message="tns:FnSaveComplaintReply" />
+      <output name="FnSaveComplaintReply_Result" message="tns:FnSaveComplaintReply_Result" />
+    </operation>
+    <operation name="GeneratePayslip">
+      <input name="GeneratePayslip" message="tns:GeneratePayslip" />
+      <output name="GeneratePayslip_Result" message="tns:GeneratePayslip_Result" />
+    </operation>
+    <operation name="FnGenerateStudentEligibility">
+      <input name="FnGenerateStudentEligibility" message="tns:FnGenerateStudentEligibility" />
+      <output name="FnGenerateStudentEligibility_Result" message="tns:FnGenerateStudentEligibility_Result" />
+    </operation>
+  </portType>
+  <binding name="StudentEngine_Binding" type="tns:StudentEngine_Port">
+    <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="FnLogin">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/StudentEngine:FnLogin" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnLogin">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnLogin_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetItemImage">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/StudentEngine:GetItemImage" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetItemImage">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetItemImage_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetCustomerStatement">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/StudentEngine:GetCustomerStatement" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetCustomerStatement">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetCustomerStatement_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnBLOBCustomerStatement">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/StudentEngine:FnBLOBCustomerStatement" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnBLOBCustomerStatement">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnBLOBCustomerStatement_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnRandomize">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/StudentEngine:FnRandomize" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnRandomize">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnRandomize_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnChangePassword">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/StudentEngine:FnChangePassword" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnChangePassword">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnChangePassword_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnLoadStudentComplaint">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/StudentEngine:FnLoadStudentComplaint" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnLoadStudentComplaint">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnLoadStudentComplaint_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnSaveComplaint">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/StudentEngine:FnSaveComplaint" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnSaveComplaint">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnSaveComplaint_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnInsertComplaint">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/StudentEngine:FnInsertComplaint" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnInsertComplaint">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnInsertComplaint_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnInsertRating">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/StudentEngine:FnInsertRating" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnInsertRating">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnInsertRating_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnCountUnits">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/StudentEngine:FnCountUnits" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnCountUnits">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnCountUnits_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnUpdateProfile">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/StudentEngine:FnUpdateProfile" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnUpdateProfile">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnUpdateProfile_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnResetPassword">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/StudentEngine:FnResetPassword" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnResetPassword">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnResetPassword_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnLoadAllComplaints">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/StudentEngine:FnLoadAllComplaints" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnLoadAllComplaints">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnLoadAllComplaints_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnLoginTutor">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/StudentEngine:FnLoginTutor" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnLoginTutor">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnLoginTutor_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnResetTutorPassword">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/StudentEngine:FnResetTutorPassword" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnResetTutorPassword">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnResetTutorPassword_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGetSemesterRegCode">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/StudentEngine:FnGetSemesterRegCode" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGetSemesterRegCode">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGetSemesterRegCode_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnSaveComplaintReply">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/StudentEngine:FnSaveComplaintReply" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnSaveComplaintReply">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnSaveComplaintReply_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GeneratePayslip">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/StudentEngine:GeneratePayslip" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GeneratePayslip">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GeneratePayslip_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGenerateStudentEligibility">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/StudentEngine:FnGenerateStudentEligibility" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGenerateStudentEligibility">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGenerateStudentEligibility_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="StudentEngine">
+    <port name="StudentEngine_Port" binding="tns:StudentEngine_Binding">
+      <address location="http://40.71.228.108:1017/PortalNIT/WS/NIT%20College%20System/Codeunit/StudentEngine" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </port>
+  </service>
+</definitions>
